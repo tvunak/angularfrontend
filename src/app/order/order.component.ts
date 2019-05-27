@@ -1,0 +1,48 @@
+import { Component, OnInit } from '@angular/core';
+import { ShoppingService } from '../services/shopping.service';
+import { Article } from '../shared/article.model';
+import { Address } from '../models/address';
+import { AddressService } from '../services/address.service';
+import { OrderService } from '../services/order.service';
+
+@Component({
+  selector: 'app-order',
+  templateUrl: './order.component.html',
+  styleUrls: ['./order.component.css']
+})
+export class OrderComponent implements OnInit {
+  private articlesInCart: Article[] = [];
+  private articlesPriceSum: number= 0;
+  addresses: Array<Address> = [];
+  billingAddress: Address;
+  deliveryAddress: Address;
+  checked: boolean = false;
+
+  constructor(private shoppingService: ShoppingService, private addressService: AddressService, private orderService: OrderService) { }
+
+  ngOnInit() {
+    this.shoppingService.getItemsFromCart().subscribe( response => {
+      this.articlesInCart = <Article[]> response.body;
+      this.articlesInCart.forEach(article => {
+        this.articlesPriceSum = this.articlesPriceSum + article.price;
+      });
+    });
+    let userId = localStorage.getItem('loggedID')
+    this.addressService.getAddresses(userId).subscribe(response =>{
+      console.log(response.body);
+      this.addresses = <Address[]> response.body;
+      this.billingAddress =this.addresses[0];
+      this.deliveryAddress =this.addresses[0];
+    });
+  }
+
+  onChange(){
+    console.log(this.checked);
+    this.checked = !this.checked;
+  }
+
+  order(){
+    this.orderService.createOrder(this.articlesInCart, this.billingAddress, this.deliveryAddress);
+  }
+
+}

@@ -1,0 +1,19 @@
+<h1 >Login</h1>
+<hr>
+<br/>
+<div class="form-wrapper">
+    <form #loginForm="ngForm" (submit)="onSubmit(username.value, password.value)" >
+        <div class="input-wrapper">
+            <mat-form-field>
+                <input #username matInput placeholder="Username" >
+            </mat-form-field>
+            <mat-form-field>
+                <input #password matInput placeholder="Password"  type="password">
+            </mat-form-field>
+        </div>
+        <div class="button-wrapper">
+                <button mat-button type="submit">Login</button>
+                <button mat-button type="reset">Cancel</button>
+        </div>
+    </form>
+</div>

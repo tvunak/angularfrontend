@@ -1,0 +1,22 @@
+<div>
+  <div class="row !itemWrapper">
+    <div class="col-md-11">
+      <h2>{{article?.name}} </h2>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="row">
+      <div class="col-md-6">
+        <div><strong>Manufacturer:</strong> {{article?.articleDetail.manufacturer}}</div>
+        <div><strong>Model:</strong> {{article?.articleDetail.description}}</div>
+        <div><strong>Date:</strong> {{article?.date}}</div>
+        <div><strong>Time:</strong> {{article?.time}}</div>
+        <div><strong>Price:</strong> {{article?.price}} kn</div>
+      </div>
+    </div>
+    <button mat-icon-button class="center" (click)="addItem()">
+      <mat-icon>add_shopping_cart</mat-icon>
+    </button>
+  </div>
+</div>

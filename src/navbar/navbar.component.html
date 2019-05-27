@@ -1,0 +1,35 @@
+<mat-toolbar color="secondary">
+    <div class="navbarInnerWrapper">
+        <div class="TitleWrapper" [routerLink]="'/events'">
+                <mat-icon>shopping_cart</mat-icon>
+                <span>eCommerce</span>
+        </div>
+        <div class="ButtonWrapper">
+            <button mat-button [routerLink]="'/events'">Home</button>
+            
+            <mat-menu #adminMenu="matMenu">
+                <button mat-menu-item [routerLink]="'/events/new'">Add article</button>
+                <button mat-menu-item [routerLink]="'/updateArticle'">Modify article</button>
+                <button mat-menu-item [routerLink]="'/updateUser'">Modify users</button>
+
+            </mat-menu>
+            <button mat-button *ngIf="isLogedIn && isAdmin "[matMenuTriggerFor]="adminMenu">Admin</button>
+            
+            <mat-menu #userMenu="matMenu">
+                <button mat-menu-item *ngIf="!isLogedIn" [routerLink]="'/login'" >LogIn</button>
+                <button mat-menu-item *ngIf="!isLogedIn" [routerLink]="'/registration'">Register</button>
+                <button mat-menu-item *ngIf="isLogedIn" [routerLink]="'/userProfile'">My profile</button>
+                <button mat-menu-item *ngIf="isLogedIn" (click)="logOut()">Log Out</button>
+            </mat-menu>
+
+            <div >{{logedUsername}}</div>
+            <button mat-icon-button [matMenuTriggerFor]="userMenu">
+                <mat-icon >person</mat-icon>
+            </button>
+            <button mat-icon-button [routerLink]="'/shoppingCart'">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </div>
+    </div>
+    
+</mat-toolbar>

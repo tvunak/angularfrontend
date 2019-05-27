@@ -1,0 +1,26 @@
+.navbarInnerWrapper{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.TitleWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}
+
+.ButtonWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 14px;
+
+}
+
+mat-icon{
+    color: #f44336;
+}

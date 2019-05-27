@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Update user {{parentData.username}} </h2>
+<mat-dialog-content >
+  <form class="update-form">
+      <mat-form-field class="example-full-width">
+        <input name="username" matInput placeholder="Username" [(ngModel)]="inpUsername">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input name="email" matInput placeholder="Email" [(ngModel)]="inpEmail">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="name" matInput placeholder="Name" [(ngModel)]="parentData.name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="middlename" matInput placeholder="Middle Name" [(ngModel)]="parentData.middleName">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="lastname" matInput placeholder="Lastname" [(ngModel)]="parentData.lastName">
+      </mat-form-field>
+    
+      
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="save(parentData)">Save</button>
+  <button class="mat-raised-button" (click)="close()" >Close</button>
+</mat-dialog-actions>

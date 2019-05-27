@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>Notice</h2>
+<mat-dialog-content >
+  <div>Are you sure that you want to delete {{username}} user account?</div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="delete()">Yes</button>
+  <button class="mat-raised-button" (click)="close()" >No</button>
+</mat-dialog-actions>

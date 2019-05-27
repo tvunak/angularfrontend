@@ -1,0 +1,31 @@
+<div *ngIf="articlesInCart?.length > 0 ">
+  <div *ngFor=" let article of articlesInCart" class="cartWrapper">
+    <div class="articleWrapper">
+      <div>Article: {{article?.name}}</div>
+      <div>Price: {{article?.price}}</div>
+    </div>
+  </div>
+</div>
+<div  class="articleWrapper">
+  <div>Total sum: {{articlesPriceSum}} kn</div>
+</div>
+<div  class="articleWrapper">
+  <div>Delivery address is different from billing address? </div>
+  <mat-slide-toggle [(checked)]="checked" (change)="onChange()" >Yes</mat-slide-toggle>
+  <div>
+    Billing address: 
+    <mat-select [(ngModel)]="billingAddress" >
+      <mat-option *ngFor="let address of addresses" [value]="address">{{ address.city }}</mat-option>
+    </mat-select>
+  </div>
+
+  <div *ngIf="checked">
+    Delivery address: 
+    <mat-select  [(ngModel)]="deliveryAddress" >
+      <mat-option *ngFor="let address of addresses" [value]="address">{{ address.city }}</mat-option>
+    </mat-select>
+  </div>
+  <button mat-button (click)="order()" >Proceed with order </button>
+  
+  
+</div>

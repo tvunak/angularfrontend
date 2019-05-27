@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Update address {{parentData.city}}, {{parentData.street}}  </h2>
+<mat-dialog-content >
+  <form class="update-form">
+      <mat-form-field class="example-full-width">
+        <input name="country" matInput placeholder="Country" [(ngModel)]="parentData.country">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input name="city" matInput placeholder="City" [(ngModel)]="parentData.city">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="street" matInput placeholder="Street" [(ngModel)]="parentData.street">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="housenumber" matInput placeholder="House Number" [(ngModel)]="parentData.houseNumber">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="zip" matInput placeholder="ZIP" [(ngModel)]="parentData.zip">
+      </mat-form-field>
+    
+      
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="save(parentData)">Save</button>
+  <button class="mat-raised-button" (click)="close()" >Close</button>
+</mat-dialog-actions>

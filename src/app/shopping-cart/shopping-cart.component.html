@@ -1,0 +1,16 @@
+<div *ngIf="articlesInCart?.length  == 0 ">
+  Shopping cart is empty!
+</div>
+<div *ngIf="articlesInCart?.length > 0 ">
+  <div *ngFor=" let article of articlesInCart" class="cartWrapper">
+    <div class="articleWrapper">
+      <div>Article: {{article?.name}}</div>
+      <div>Price: {{article?.price}}</div>
+      <button mat-button (click)="removeItemClick(article)">Remove </button>
+    </div>
+  </div>
+</div>
+<div  class="articleWrapper">
+  <div>Total sum: {{articlesPriceSum}} kn</div>
+  <button mat-button (click)="buy()" [routerLink]="'/order'">Buy </button>
+</div>

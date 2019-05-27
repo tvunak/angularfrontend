@@ -1,0 +1,26 @@
+.itemWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex: 0 1 19%;
+    padding: 5px;
+    margin: 5px;
+    border: 1px;
+    border-style: solid;
+    border-color: #A9A9A9;
+}
+.contentWrapper{
+    display: flex;
+    flex-direction: column;
+    
+}
+.items{
+    padding-left: 2%;
+    margin-bottom: 5px;
+}
+
+
+h2{
+    font-size: 20px;
+}
+

@@ -1,0 +1,11 @@
+<div class="itemWrapper" [routerLink]="['/event',article?.id]" *ngFor="let article of articleChild">
+  <div class="contentWrapper" >
+    <h2>{{article.name}}</h2>
+    <div >
+        <div class="items">Datum: {{article.date}}</div>
+        <div class="items">Vrijeme: {{article.time}}</div>
+        <div class="items">Cijena: {{article.price}}</div>
+        
+    </div>
+  </div>
+</div>

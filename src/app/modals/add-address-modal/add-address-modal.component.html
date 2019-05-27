@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Add new address</h2>
+<mat-dialog-content >
+  <form class="create-form">
+      <mat-form-field class="example-full-width">
+        <input name="country" matInput placeholder="Country" [(ngModel)]="address.country">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+          <input name="city" matInput placeholder="City" [(ngModel)]="address.city">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="street" matInput placeholder="Street" [(ngModel)]="address.street">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="houseNumber" matInput placeholder="House Number" [(ngModel)]="address.houseNumber">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="zip" matInput placeholder="ZIP" [(ngModel)]="address.zip">
+      </mat-form-field>
+    
+      
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="save()">Save</button>
+  <button class="mat-raised-button" (click)="close()" >Close</button>
+</mat-dialog-actions>

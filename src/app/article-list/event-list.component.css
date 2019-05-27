@@ -1,0 +1,12 @@
+
+
+.eventWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  }
+
+.item {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%
+  }

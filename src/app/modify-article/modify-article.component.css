@@ -1,0 +1,24 @@
+h1{
+    padding-left: 10px;
+}
+
+.form-wrapper{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+th.mat-header-cell {
+    text-align: left; 
+}
+
+
+.mat-cell{
+   padding-right: 10px;
+}
+
+.mat-flat-button{
+    padding-left: 0px;
+    padding-right: 0px;
+    min-width: 40px;
+}

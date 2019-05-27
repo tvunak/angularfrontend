@@ -1,0 +1,12 @@
+.articleWrapper{
+    padding: 5px;
+    margin: 5px;
+}
+
+.articleWrapper{
+    padding: 5px;
+    border: 1px;
+    border-style: solid;
+    border-color: #A9A9A9;
+
+}

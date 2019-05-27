@@ -1,0 +1,76 @@
+<h1 color="warning">User profile</h1>
+<hr>
+<div class="formWrapper">
+    
+    <div class="userDetailsWrapper">
+      <div class="row sided">
+        <div>Username:</div> 
+        <div>{{user?.username}}</div>
+      </div>
+
+      <div class="row sided">
+        <div>Name:</div>
+        <div>{{user?.name}}</div>
+      </div>
+
+      <div class="row sided">
+        <div >Middlename:</div>
+        <div>{{user?.middleName}}</div>
+      </div>
+
+      <div class="row sided">
+        <div>Lastname:</div>
+        <div>{{user?.lastName}}</div>
+      </div>
+
+      <div class="row sided">
+        <div>E-mail:</div>
+        <div>{{user?.email}}</div>
+      </div>
+
+      <div class="row center">
+        <button mat-button (click)="openModifyUserDialog()">Modify details</button>
+      </div>
+    </div>
+</div>
+
+  <mat-select [(ngModel)]="selectedAddress" >
+    <mat-option *ngFor="let address of addresses" [value]="address">{{ address.city }}</mat-option>
+  </mat-select>
+
+
+<div class="formWrapper">
+    <div class="userAddressWrapper">
+      <div class="row sided">
+        <div>Country:</div> 
+        <div>{{selectedAddress?.country}}</div>
+      </div>
+
+      <div class="row sided">
+        <div>City:</div>
+        <div>{{selectedAddress?.city}}</div>
+      </div>
+
+      <div class="row sided">
+        <div >Zip:</div>
+        <div>{{selectedAddress?.zip}}</div>
+      </div>
+
+      <div class="row sided">
+        <div>Street:</div>
+        <div>{{selectedAddress?.street}}</div>
+      </div>
+
+      <div class="row sided">
+        <div>houseNumber:</div>
+        <div>{{selectedAddress?.houseNumber}}</div>
+      </div>
+
+      <div class="row center">
+        <button mat-button (click)="openAddAddressDialog()">Add address</button>
+        <button mat-button (click)="openUpdateAddressDialog()">Modify address</button>
+        <button mat-button (click)="openDeleteAddressDialog()">Delete address</button>
+      </div>
+    </div>
+</div>
+

@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Update article {{parentData.name}} </h2>
+<mat-dialog-content >
+  <form class="update-form">
+      <mat-form-field class="example-full-width">
+        <input name="name" matInput placeholder="Name" [(ngModel)]="parentData.name">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="date" matInput placeholder="Date" [(ngModel)]="parentData.date">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="time" matInput placeholder="Time" [(ngModel)]="parentData.time">
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input name="price" matInput placeholder="Price" [(ngModel)]="parentData.price">
+      </mat-form-field>
+    
+      
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="save(parentData)">Save</button>
+  <button class="mat-raised-button" (click)="close()" >Close</button>
+</mat-dialog-actions>
+
