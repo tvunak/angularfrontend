@@ -4,6 +4,9 @@ import { Article } from '../shared/article.model';
 import { Address } from '../models/address';
 import { AddressService } from '../services/address.service';
 import { OrderService } from '../services/order.service';
+import { MatDialogRef, MatDialogConfig, MatDialog } from '@angular/material';
+import { AddAddressModalComponent } from '../modals/add-address-modal/add-address-modal.component';
+import { User } from '../models/user';
 
 @Component({
   selector: 'app-order',
@@ -18,7 +21,8 @@ export class OrderComponent implements OnInit {
   deliveryAddress: Address;
   checked: boolean = false;
 
-  constructor(private shoppingService: ShoppingService, private addressService: AddressService, private orderService: OrderService) { }
+  constructor(private shoppingService: ShoppingService, private addressService: AddressService, 
+    private orderService: OrderService, public dialog: MatDialog) { }
 
   ngOnInit() {
     this.shoppingService.getItemsFromCart().subscribe( response => {
@@ -44,5 +48,17 @@ export class OrderComponent implements OnInit {
   order(){
     this.orderService.createOrder(this.articlesInCart, this.billingAddress, this.deliveryAddress);
   }
+
+addNewAddress(){
+  console.log("add address dialog works");
+  const dialogConfig = new MatDialogConfig();
+  dialogConfig.autoFocus = true;
+  let userId: number = +localStorage.getItem('loggedID');
+  console.log(userId);
+  let user :  User = new User;
+  user.id = userId;
+  dialogConfig.data = user;
+  this.dialog.open(AddAddressModalComponent, dialogConfig)
+}
 
 }
