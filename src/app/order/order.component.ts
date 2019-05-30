@@ -38,6 +38,10 @@ export class OrderComponent implements OnInit {
       this.billingAddress =this.addresses[0];
       this.deliveryAddress =this.addresses[0];
     });
+    this.addressService.newAddressEmitter.subscribe(address=>{
+      this.addresses.push(address);
+    });
+
   }
 
   onChange(){
