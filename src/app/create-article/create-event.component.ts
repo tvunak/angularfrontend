@@ -10,7 +10,7 @@ import { ArticleService } from '../services/article.service';
   styleUrls: ['./create-event.component.css']
 })
 export class CreateEventComponent implements OnInit {
-
+  inputFile: File;
   constructor(private router: Router, private articleVerification: ArticleVerficationService, private  articleService: ArticleService) { }
 
   ngOnInit() {
@@ -25,9 +25,13 @@ export class CreateEventComponent implements OnInit {
     console.log(manufacturer);
     let isValidInputData = this.articleVerification.verifyInput(name, price, date, description, manufacturer);
     if (isValidInputData){
-      this.articleService.addArticle(name, price, date, description, manufacturer);
+      this.articleService.addArticle(name, price, date, description, manufacturer, this.inputFile);
     }
     
   }
+
+  fileChanged(e) {
+    this.inputFile = e.target.files[0];
+}
 
 }

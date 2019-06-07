@@ -60,7 +60,7 @@ export class ArticleService{
         return this.articlIDs;
     }
 
-    addArticle(name: string, price: string, date: string, description: string, manufacturer: string){
+    addArticle(name: string, price: string, date: string, description: string, manufacturer: string, file: File){
         // dodavanje trenutnog vremena
         let today= new Date();
         let currentFormatedTime = '';
@@ -78,10 +78,30 @@ export class ArticleService{
             headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin':'*','Authorization': bearerToken, 'X-Requested-With':'message/http', 'XMLHttpRequest':'application/json'}),
             observe: 'response' as 'response'
           };
+          const httpOptionsImage = {
+            headers: new HttpHeaders({ 'Access-Control-Allow-Origin':'*','Authorization': bearerToken}),
+            observe: 'response' as 'response'
+          };
+        let input = new FormData();
+        if (file != undefined){    
+            console.log(file);
+            input.append('file', file, file.name);
+            input.append('fileType', 'image/jpg');
+        }
+        
+        
+        
 
         return this.http.post<Article>(this.apiURL+'api/article',body, httpOptions).subscribe(res =>{
-            console.log(res);
+            console.log(res.body);
+            if (file != undefined && res.body.id != undefined){
+                this.http.post(this.apiURL+'api/uploadFile/'+res.body.id,input, httpOptionsImage).subscribe(res =>{
+                    console.log("image added");
+                });
+            }
+            
         });
+        
     }
 
     deleteArticle(article: Article){
